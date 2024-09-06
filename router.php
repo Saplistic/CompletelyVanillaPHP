@@ -1,16 +1,7 @@
 <?php 
 
+$routes = require('routes.php');
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-
-$routes = [
-    '/' => 'views/home.view.php',
-    '/home' => 'views/home.view.php',
-    '/about' => 'views/about.view.php',
-    '/contact' => 'views/contact.view.php',
-    '/notes' => 'controllers/notes.php',
-    '/note' => 'controllers/note.php'
-];
 
 if (array_key_exists($uri, $routes)) {
 
@@ -19,7 +10,7 @@ if (array_key_exists($uri, $routes)) {
     require $routes[$uri];
     
 } else {
-
+    
     $title = '404 not found';
     abort();
 }
