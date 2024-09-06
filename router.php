@@ -12,6 +12,13 @@ $routes = [
     '/note' => 'controllers/note.php'
 ];
 
+function abort($statusCode = 404) {
+    
+    require "views/{$statusCode}.view.php";
+
+    die();
+}
+
 if (array_key_exists($uri, $routes)) {
 
     $title = $uri; // just a default value for page tab title
@@ -20,8 +27,8 @@ if (array_key_exists($uri, $routes)) {
     
 } else {
 
-    http_response_code(404);
+    http_response_code(Response::NOT_FOUND);
 
     $title = '404 not found';
-    require 'views/404.view.php';
+    abort(Response::NOT_FOUND);
 }
