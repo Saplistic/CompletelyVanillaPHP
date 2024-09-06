@@ -2,9 +2,7 @@
 
 <?php require("parts/header.view.php") ?>
 
-<main>
-    <h1>You have no acces to this page</h1>
-    <a href="/">Go to homepage</a>
-</main>
+<h1>You have no acces to this page</h1>
+<a href="/">Go to homepage</a>
 
 <?php require("parts/footer.view.php") ?>

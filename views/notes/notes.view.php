@@ -2,15 +2,15 @@
 
 <?php require("views/parts/header.view.php") ?>
 
-<main>
     <h1>Notes</h1>
 
+<ul class="list-group m-3">
     <?php foreach ($notes as $note) : ?>
-        <li>
+        <li class="list-group-item">
             <a href="/note?id=<?=$note['id']?>"><?= $note['title'] ?></a>
         </li>
-
     <?php endforeach; ?>
-</main>
+</ul>
+
 
 <?php require("views/parts/footer.view.php") ?>

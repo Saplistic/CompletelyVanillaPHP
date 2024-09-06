@@ -2,8 +2,6 @@
 
 <?php require("parts/header.view.php") ?>
 
-<main>
-    <h1>Homepage</h1>
-</main>
+<h1>Homepage</h1>
 
 <?php require("parts/footer.view.php") ?>
