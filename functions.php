@@ -16,4 +16,12 @@ function authorize($condition, $status = Response::FORBIDDEN) {
     }
 }
 
+function base_path($path) {
+    return BASE_PATH . $path;
+}
+
+function view($path) {
+    return base_path('views/' . $path);
+}
+
 ?>

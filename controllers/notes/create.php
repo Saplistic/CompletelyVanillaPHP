@@ -2,7 +2,7 @@
 
 $currentUserId = 1;
 
-$config = require('./config.php');
+$config = require base_path('config.php');
 
 $db = new Database($config['database']); 
 $notes = $db->query("select * from notes")->findMany();
@@ -31,4 +31,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $title = 'Create Note';
 
-require 'views/notes/create.view.php';
+require view('notes/create.view.php');
