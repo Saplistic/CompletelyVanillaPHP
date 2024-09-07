@@ -6,6 +6,7 @@ $db = new Database($config['database']);
 
 $notes = $db->query("select * from notes")->findMany();
 
-$title = 'Notes';
-
-require view('notes/index.view.php');
+view('notes/index.view.php', [
+    'title' => 'Notes',
+    'notes' => $notes
+]);

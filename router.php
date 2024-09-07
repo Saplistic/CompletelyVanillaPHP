@@ -18,8 +18,7 @@ if (array_key_exists($uri, $routes)) {
 function abort($statusCode = Response::NOT_FOUND) {
 
     http_response_code($statusCode);
-    
-    require view("{$statusCode}.view.php");
+    view("{$statusCode}.view.php");
 
     die();
 }
