@@ -7,4 +7,4 @@ $notes = $db->query("select * from notes")->findMany();
 
 $title = 'Notes';
 
-require 'views/notes/notes.view.php';
+require 'views/notes/index.view.php';
