@@ -1,6 +1,6 @@
-<?php require("views/parts/head.view.php") ?>
+<?php require("../views/parts/head.view.php") ?>
 
-<?php require("views/parts/header.view.php") ?>
+<?php require("../views/parts/header.view.php") ?>
 
 <?php 
 
@@ -39,4 +39,4 @@ function HTMLDisplayError($name) {
 
 <a href="/notes">Go back</a>
 
-<?php require("views/parts/footer.view.php") ?>
+<?php require("../views/parts/footer.view.php") ?>

@@ -1,6 +1,6 @@
-<?php require("views/parts/head.view.php") ?>
+<?php require("../views/parts/head.view.php") ?>
 
-<?php require("views/parts/header.view.php") ?>
+<?php require("../views/parts/header.view.php") ?>
 
 <h1>Notes</h1>
 
@@ -14,4 +14,4 @@
 
 <a href="/note/create" class="btn btn-primary">Create note</a>
 
-<?php require("views/parts/footer.view.php") ?>
+<?php require "../views/parts/footer.view.php" ?>
