@@ -5,9 +5,9 @@
 <h1>Note</h1>
 <div class="card">
     <div class="card-body">
-        <h6><?= $note['title'] ?></h6>
+        <h6><?= htmlspecialchars($note['title']) ?></h6>
         
-        <p><?= $note['content'] ?></p>
+        <p><?= htmlspecialchars($note['body']) ?></p>
         
         <a href="/notes">Go back</a>
     </div>
