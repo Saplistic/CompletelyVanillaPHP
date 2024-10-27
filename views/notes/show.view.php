@@ -9,7 +9,12 @@
         
         <p><?= htmlspecialchars($note['body']) ?></p>
         
-        <a href="/notes">Go back</a>
+        
+        <form method="POST">
+            <button class="btn btn-danger d-block" style="float:right">Delete</button>
+        </form>
+
+        <br><a href="/notes">Go back</a>
     </div>
 </div>
 
