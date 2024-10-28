@@ -11,6 +11,7 @@
         
         
         <form method="POST">
+            <input type="hidden" name="_method" value="DELETE">
             <button class="btn btn-danger d-block" style="float:right">Delete</button>
         </form>
 

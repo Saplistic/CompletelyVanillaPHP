@@ -1,27 +1,64 @@
 <?php 
 
+namespace Core;
+
 use Core\Response;
 
-$routes = require base_path('routes.php');
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+class Router
+{
+    protected $routes = [];
 
-if (array_key_exists($uri, $routes)) {
+    protected function add($uri, $method, $controller)
+    {
+        $this->routes[] = [
+            'uri' => $uri,
+            'controller' => $controller,
+            'method' => $method
+        ];
+    }
+
+
+    function get($uri, $controller) 
+    {
+        $this->add($uri, 'GET', $controller);
+    }
+
+    function post($uri, $controller) 
+    {
+        $this->add($uri, 'POST', $controller);
+    }
+
+    function delete($uri, $controller) 
+    {
+        $this->add($uri, 'DELETE', $controller);
+    }
+
+    function patch($uri, $controller) 
+    {
+        $this->add($uri, 'PATCH', $controller);
+    }
+
+    function routeTo($uri, $method)
+    {
+        foreach ($this->routes as $route) {
+            if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+                return require base_path($route['controller']);
+            }
+        }
+
+        abort();
+    }
+
+
+    function abort($statusCode = Response::NOT_FOUND) {
+
+        http_response_code($statusCode);
+        
+        view("{$statusCode}.view.php", [
+            'title' => $statusCode
+        ]);
     
-    $title = $uri; // just a default value for page tab title
-
-    require base_path($routes[$uri]);
+        die();
+    }
     
-} else {
-    
-    $title = '404 not found';
-    abort();
-}
-
-
-function abort($statusCode = Response::NOT_FOUND) {
-
-    http_response_code($statusCode);
-    view("{$statusCode}.view.php");
-
-    die();
 }
