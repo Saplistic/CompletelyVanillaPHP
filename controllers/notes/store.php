@@ -1,11 +1,11 @@
-<?php 
+<?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']); 
+$db = App::resolve(Database::class);
 
-global $errors;
+global $errors; // make global so that its accessible in other file's functions
 
 $errors = [];
 
