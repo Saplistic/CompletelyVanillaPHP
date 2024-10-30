@@ -17,7 +17,6 @@ class Router
         ];
     }
 
-
     function get($uri, $controller) 
     {
         $this->add($uri, 'GET', $controller);
@@ -42,6 +41,7 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+                require base_path('Core/viewFunctions.php');
                 return require base_path($route['controller']);
             }
         }
