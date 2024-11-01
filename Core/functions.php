@@ -21,6 +21,10 @@ function base_path($path) {
     return BASE_PATH . $path;
 }
 
+function viewPath($path) {
+    return base_path('views/' . $path . '.view.php');
+}
+
 function view($path, $attributes = []) {
     
     extract($attributes);

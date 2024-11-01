@@ -1,7 +1,6 @@
-<?php require("parts/head.view.php") ?>
-
-<?php require("parts/header.view.php") ?>
+<?php require viewPath("parts/head") ?>
+<?php require viewPath("parts/header") ?>
 
 <h1>Homepage</h1>
 
-<?php require("parts/footer.view.php") ?>
+<?php require viewPath("parts/footer") ?>

@@ -1,6 +1,5 @@
-<?php require("../views/parts/head.view.php") ?>
-
-<?php require("../views/parts/header.view.php") ?>
+<?php require viewPath("parts/head") ?>
+<?php require viewPath("parts/header") ?>
 
 <h1>Create Note</h1>
 
@@ -24,4 +23,4 @@
 
 <a href="/notes">Go back</a>
 
-<?php require("../views/parts/footer.view.php") ?>
+<?php require viewPath("parts/footer") ?>
