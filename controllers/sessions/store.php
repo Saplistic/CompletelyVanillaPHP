@@ -20,9 +20,10 @@ if (strlen($_POST['password']) == 0) {
 }
 
 if (! empty($errors)) {
-    return view('registration/create.view.php', [
+    return view('session/create.view.php', [
         'errors' => $errors
     ]);
+    exit();
 }
 
 $db = App::resolve(Database::class);
@@ -31,22 +32,18 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
     'email' => $email
 ])->find();
 
-if ($user) {
-    $errors['email'] = "Please provide an unique email adress";
+if ($user) { // User matching email adress is found
+    if (password_verify($password, $user['password'])) { // & Entered password matches user
+        login([
+            'email' => $email
+        ]);
 
-    return view('registration/create.view.php', [
-        'errors' => $errors
-    ]);
+        header('location: /');
+        exit();
+    }
 }
 
-$db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
-    'email' => $email,
-    'password' => password_hash($password, PASSWORD_BCRYPT)
+$errors['user'] = 'No matching account found with that email adress';
+return view('session/create.view.php', [
+    'errors' => $errors
 ]);
-
-login([
-    'email' => $email
-]);
-
-header('location: /');
-exit();

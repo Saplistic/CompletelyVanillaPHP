@@ -18,3 +18,6 @@ $router->delete('/note', 'controllers/notes/destroy.php'); // Delete note action
 $router->get('/register', 'controllers/registration/create.php');
 $router->post('/register', 'controllers/registration/store.php');
 
+$router->get('/login', 'controllers/session/create.php');
+$router->post('/session', 'controllers/session/store.php');
+$router->delete('/session', 'controllers/session/destroy.php');

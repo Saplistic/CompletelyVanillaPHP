@@ -1,5 +1,5 @@
 <?php view("parts/head.view.php", [
-  'title' => 'Register',
+  'title' => 'Login',
   'resources' => '<link href="/css/register.css" media="all" rel="stylesheet">'
 ]); ?>
 
@@ -16,9 +16,9 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
 
-              <h2 class="text-center mb-5">Create an account</h2>
+              <h2 class="text-center mb-5">Log in!</h2>
 
-              <form method="POST" action="/register">
+              <form action="/session" method="POST">
 
                 <div class="form-outline mb-4">
                   <input name="email" type="email" id="email" class="form-control form-control-lg" />
@@ -32,16 +32,11 @@
                   <?= HTMLDisplayErrorMsg('password') ?>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                </div>
+                <?= HTMLDisplayErrorMsg('user') ?>
 
-                <p class="text-center text-muted mt-5 mb-0">
-                    Already have an account? 
-                    <a href="/login" class="fw-bold text-body">
-                        <u>Login here</u>
-                    </a>
-                </p>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                </div>
                 
               </form>
 
